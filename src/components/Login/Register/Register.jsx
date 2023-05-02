@@ -1,13 +1,39 @@
-import React from "react";
+import React, { useContext } from "react";
 import companyLogo from '../../../assets/companyLogo.png';
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../../providers/AuthProvider";
+import { Container } from "postcss";
 
 
 const Register = () => {
+    const {createUser} = useContext(AuthContext);
+
+    const handleRegister = event => {
+        event.preventDefault();
+        const form = event.target;
+        const name = form.name.value
+        const email = form.email.value;
+        const password = form.password.value;
+        const photoURL = form.photoURL.value;
+
+
+        console.log(name, email, password, photoURL)
+        createUser(email, password)
+        .then(result => {
+            const createdUser = result.user;
+            console.log(createdUser)
+        })
+        .catch(error => {
+            console.log(error)
+        })
+
+    }
+
+ 
   return (
     <section className="bg-gray-50 dark:bg-gray-900">
-      <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
-        <Link
+      <div className="flex flex-col items-center justify-center px-6 py-2 mx-auto md:h-screen lg:py-0">
+        {/* <Link
           to='/'
           className="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white"
         >
@@ -17,19 +43,35 @@ const Register = () => {
             src={companyLogo}
             alt="logo"
           />
-        </Link>
+        </Link> */}
         <div className="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
           <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
-            <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
+            <h1 className="text- font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
               Create an account
             </h1>
-            <form className="space-y-4 md:space-y-6" action="#">
+            <form onSubmit={handleRegister} className="space-y-4 md:space-y-6" action="#">
               <div>
                 <label
-                  for="email"
+                  htmlFor="name"
                   className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                 >
-                  Your email
+                  Name
+                </label>
+                <input
+                  type="text"
+                  name="name"
+                  id="name"
+                  className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  placeholder="name@company.com"
+                  required=""
+                />
+              </div>
+              <div>
+                <label
+                  htmlFor="email"
+                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                >
+                  Email
                 </label>
                 <input
                   type="email"
@@ -42,7 +84,7 @@ const Register = () => {
               </div>
               <div>
                 <label
-                  for="password"
+                  htmlFor="password"
                   className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                 >
                   Password
@@ -58,16 +100,32 @@ const Register = () => {
               </div>
               <div>
                 <label
-                  for="confirm-password"
+                  htmlFor="confirm-password"
                   className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                 >
                   Confirm password
                 </label>
                 <input
-                  type="confirm-password"
+                  type="password"
                   name="confirm-password"
                   id="confirm-password"
                   placeholder="••••••••"
+                  className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  required=""
+                />
+              </div>
+              <div>
+                <label
+                  htmlFor="url"
+                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                >
+                  Photo URL
+                </label>
+                <input
+                  type="url"
+                  name="photo-url"
+                  id="photo-url"
+                  placeholder=""
                   className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   required=""
                 />
@@ -84,7 +142,7 @@ const Register = () => {
                 </div>
                 <div className="ml-3 text-sm">
                   <label
-                    for="terms"
+                    htmlFor="terms"
                     className="font-light text-gray-500 dark:text-gray-300"
                   >
                     I accept the{" "}
@@ -103,7 +161,8 @@ const Register = () => {
               >
                 Create an account
               </button>
-              <p className="text-md font-light text-gray-500 dark:text-gray-400">
+           <div className="mb-0">
+           <p className="text-md font-light text-gray-500 dark:text-gray-400">
                 Already have an account?{" "}
                 <Link
                   to='/login'
@@ -112,6 +171,7 @@ const Register = () => {
                   Login here
                 </Link>
               </p>
+           </div>
             </form>
           </div>
         </div>
