@@ -1,10 +1,11 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import companyLogo from "../../../assets/companyLogo.png";
-import { Link } from "react-router-dom";
+import { Link, Navigate} from "react-router-dom";
 import { FaGoogle,FaGithub } from "react-icons/fa";
 import { AuthContext } from "../../../providers/AuthProvider";
 
 const Login = () => {
+    const [error, setError] = useState('');
 
     const {signIn} = useContext(AuthContext)
 
@@ -19,12 +20,19 @@ const Login = () => {
     .then(result => {
         const loggedUser = result.user;
         console.log(loggedUser)
+        setError('');
+        
+
     })
     .catch(error => {
-        console.log(error)
+        console.log(error.message)
+        setError(error.message)
+        event.target.reset();
+
     })
 
     }
+
   return (
     <section className="bg-gray-50 dark:bg-gray-900">
       <div className="flex flex-col items-center justify-center px-6 py-4 mx-auto md:h-screen lg:py-0">
@@ -76,6 +84,9 @@ const Login = () => {
                   required=""
                 />
               </div>
+
+              <p className="text-red-700">{error}</p>
+
               <div className="flex items-center justify-between">
                 <div className="flex items-start">
                   <div className="flex items-center h-5">
@@ -104,10 +115,11 @@ const Login = () => {
                 </a>
               </div>
               <button
+
                 type="submit"
                 className="w-full text-white bg-purple-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
               >
-                Sign in
+                Login
               </button>
 
               <p className="text-sm font-light text-black dark:text-gray-400">
