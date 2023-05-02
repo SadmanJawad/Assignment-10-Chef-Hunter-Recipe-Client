@@ -63,6 +63,9 @@ const Header = () => {
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
             <li>
+              <Link to='/'>Home</Link>
+            </li>
+            <li>
               <Link to='/about'>About</Link>
             </li>
             <li>
@@ -81,7 +84,7 @@ const Header = () => {
               <Link to='/'>Travel</Link>
             </li>
             <li>
-            <Link to='/login' className="btn">Login</Link>
+            <Link to='/login' className="btn btn-outline btn-primary">Login</Link>
             </li>
           </ul>
         </div>
