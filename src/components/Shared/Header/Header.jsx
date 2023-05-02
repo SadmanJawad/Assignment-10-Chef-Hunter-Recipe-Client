@@ -7,7 +7,7 @@ const Header = () => {
   return (
       <div className="navbar container bg-base-100">
         <div className="navbar-start">
-          <div className="dropdown">
+          {/* <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -57,7 +57,7 @@ const Header = () => {
                 <a>Item 3</a>
               </li>
             </ul>
-          </div>
+          </div> */}
           <Link className="w-32 ml-24"><img src={companyLogo} alt="" /></Link>
         </div>
         <div className="navbar-center hidden lg:flex">
@@ -80,12 +80,13 @@ const Header = () => {
             <li>
               <Link to='/'>Travel</Link>
             </li>
-
+            <li>
+            <Link to='/login' className="btn">Login</Link>
+            </li>
           </ul>
         </div>
-        <div className="navbar-end">
-          <Link to='/login' className="btn">Login</Link>
-        </div>
+          
+        
       </div>
   );
 };
