@@ -5,10 +5,10 @@ import { Link } from "react-router-dom";
 const CardDetails = ({ chefData }) => {
   const { chefName, experienceYears, id, pictureUrl, likes, recipeCount } =
     chefData;
-  console.log(chefData);
+  // console.log(chefData);
   return (
       <div className="card w-96 ml-7 bg-base-100 border border-gray-400">
-        <figure>
+        <figure className="relative max-w-sm transition-all duration-300 cursor-pointer filter grayscale hover:grayscale-0">
           <img className="h-60 w-4/5 rounded mt-4" src={pictureUrl} alt="" />
         </figure>
         <div className="card-body">

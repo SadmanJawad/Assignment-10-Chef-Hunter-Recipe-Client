@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { FaFacebook, FaSearch } from "react-icons/fa";
+import { FaArrowCircleRight, FaArrowRight, FaFacebook, FaSearch } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import companyLogo from '../../../assets/companyLogo.png'
 import { AuthContext } from "../../../providers/AuthProvider";
@@ -14,7 +14,8 @@ const Header = () => {
   return (
       <div className="navbar container bg-base-100">
         <div className="navbar-start">
-          {/* <div className="dropdown">
+          {/* dropdown responsive menu */}
+          <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -36,35 +37,46 @@ const Header = () => {
               className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
             >
               <li>
-                <a>Item 1</a>
+              <Link to='/'>Home</Link>
+              </li>
+              <li>
+              <Link to='/about'>About</Link>
               </li>
               <li tabIndex={0}>
                 <a className="justify-between">
-                  Parent
-                  <svg
-                    className="fill-current"
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                  >
-                    <path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" />
-                  </svg>
+                  More menu
+                 <FaArrowRight></FaArrowRight>
                 </a>
-                <ul className="p-2">
+                <ul className="p-2 bg-base-100">
                   <li>
-                    <a>Submenu 1</a>
+                  <Link to='/'>Review</Link>
                   </li>
                   <li>
-                    <a>Submenu 2</a>
-                  </li>
+              <Link to='/'>Recipe</Link>
+            </li> 
+            <li>
+              <Link to='/'>Culture</Link>
+            </li>
+            <li>
+              <Link to='/blog'>Blog</Link>
+            </li>
+            <li>
+              <Link to='/'>Travel</Link>
+            </li>
                 </ul>
               </li>
-              <li>
-                <a>Item 3</a>
-              </li>
+              {
+            user ?
+            <li>
+              <Link onClick={handleLogout} className="btn-btn-outline btn-primary">Logout</Link>
+            </li> 
+            :
+             <li>
+             <Link to='/login' className="btn btn-outline btn-primary">Login</Link>
+             </li> 
+           }
             </ul>
-          </div> */}
+          </div>
           <Link className="w-32 ml-24"><img src={companyLogo} alt="" /></Link>
         </div>
         <div className="navbar-center hidden lg:flex">
