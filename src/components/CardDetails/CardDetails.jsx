@@ -7,11 +7,12 @@ const CardDetails = ({ chefData }) => {
     chefData;
   // console.log(chefData);
   return (
-      <div className="card w-96 ml-7 bg-base-100 border border-gray-400">
-        <figure className="relative max-w-sm transition-all duration-300 cursor-pointer filter grayscale hover:grayscale-0">
-          <img className="h-60 w-4/5 rounded mt-4" src={pictureUrl} alt="" />
+      <div className="card w-96 ml-7 bg-base-100 border border-gray-400 relative group overflow-hidden rounded-lg shadow-lg">
+        <figure>
+          <img className="h-60 w-4/5 rounded mt-4 transition duration-300 transform group-hover:scale-125" src={pictureUrl} alt="" />
         </figure>
-        <div className="card-body">
+        <div class="absolute inset-0 opacity-75 transition duration-300 ease-out group-hover:opacity-0"></div>
+        <div className="card-body ">
           <h2 className="card-title font-bold">{chefName}</h2>
           <p className="text-xl">Years of experience: {experienceYears}</p>
           <p className="text-xl">Num of recipes: {recipeCount}</p>
@@ -25,3 +26,7 @@ const CardDetails = ({ chefData }) => {
 };
 
 export default CardDetails;
+
+
+
+

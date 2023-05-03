@@ -7,7 +7,9 @@ const About = () => {
     <h2 className="text-3xl font-bold text-gray-800 mb-6">About Us</h2>
     <div className="flex flex-col md:flex-row">
      <div className="md:w-1/2 mb-6 md:mb-0">
-        <img src="https://i.ibb.co/ZhyNXS6/close-up-chef-cooking-restaurant-kitchen.jpg" alt="Our Story" className="w-full h-full object-cover rounded-lg shadow-md"/>
+      <figure className="relative max-w transition-all duration-300 cursor-pointer filter grayscale hover:grayscale-0">
+      <img src="https://i.ibb.co/ZhyNXS6/close-up-chef-cooking-restaurant-kitchen.jpg" alt="Our Story" className="w-full h-full object-cover rounded-lg shadow-md"/>
+      </figure>
       </div>
       <div className="md:w-1/2 md:pl-10">
         <h3 className="text-xl font-bold text-gray-800 mb-2">Our Story</h3>

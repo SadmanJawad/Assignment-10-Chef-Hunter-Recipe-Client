@@ -87,31 +87,25 @@ const Header = () => {
             <li>
               <Link to='/about'>About</Link>
             </li>
-            <li>
-              <Link to='/'>Review</Link>
-            </li>
-            <li>
-              <Link to='/'>Recipe</Link>
-            </li>
-            <li>
-              <Link to='/'>Culture</Link>
-            </li>
+        
+            
+          
             <li>
               <Link to='/blog'>Blog</Link>
             </li>
-            <li>
-              <Link to='/'>Travel</Link>
-            </li>
-           {
+        <div className="ml-56">
+             
+        {
             user ?
             <li>
-              <Link onClick={handleLogout} className="btn-btn-outline btn-primary">Logout</Link>
+              <Link onClick={handleLogout} className="btn btn-outline btn-primary text-white font-medium">Logout</Link>
             </li> 
             :
              <li>
              <Link to='/login' className="btn btn-outline btn-primary">Login</Link>
              </li> 
            }
+        </div>
           </ul>
         </div>
           
