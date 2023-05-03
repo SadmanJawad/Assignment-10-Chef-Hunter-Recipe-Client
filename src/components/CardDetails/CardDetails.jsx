@@ -1,25 +1,27 @@
-import React from 'react';
+import React from "react";
+import { FaRegHeart } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const CardDetails = ({ chefData }) => {
-    const {} = chefData;
-    console.log(chefData)
-    return (
-        <div>
-                <div className="container flex">
-      <div className="card lg:card-side bg-base-100 shadow-xl">
-  <figure><img src="/images/stock/photo-1494232410401-ad00d5433cfa.jpg" alt="Album"/></figure>
-  <div className="card-body">
-    <h2 className="card-title">New album is released!</h2>
-    <p>Click the button to listen on Spotiwhy app.</p>
-    <div className="card-actions justify-end">
-      <button className="btn btn-primary">Listen</button>
-    </div>
-  </div>
-</div>
-
-      </div>
+  const { chefName, experienceYears, id, pictureUrl, likes, recipeCount } =
+    chefData;
+//   console.log(chefData);
+  return (
+      <div className="card w-96 ml-7 bg-base-100 border border-gray-400">
+        <figure>
+          <img className="h-60 w-4/5 rounded mt-4" src={pictureUrl} alt="" />
+        </figure>
+        <div className="card-body">
+          <h2 className="card-title font-bold">{chefName}</h2>
+          <p className="text-xl">Years of experience: {experienceYears}</p>
+          <p className="text-xl">Num of recipes: {recipeCount}</p>
+          <p className="text-xl flex items-center"><FaRegHeart className="mr-2 text-purple-600"></FaRegHeart>{likes}</p>
+          <div>
+            <Link to={`/${id}`} className="btn bg-purple-800">View Recipe</Link>
+          </div>
         </div>
-    );
+      </div>
+  );
 };
 
 export default CardDetails;
