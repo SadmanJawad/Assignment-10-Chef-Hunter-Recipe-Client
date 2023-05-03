@@ -24,7 +24,7 @@ const First = () => {
             We invest in the world’s potential
           </h1>
           <p class="mb-8 text-lg font-normal text-gray-500 lg:text-xl sm:px-16 xl:px-48 dark:text-gray-400">
-            Here at Sprouted we focus on foods where innovation,
+            Here at Sprouted Kitchen we focus on foods where innovation,
             and choice can unlock long-term value and drive choice of food.
           </p>
           <div class="flex flex-col mb-8 lg:mb-16 space-y-4 sm:flex-row sm:justify-center sm:space-y-0 sm:space-x-4">
