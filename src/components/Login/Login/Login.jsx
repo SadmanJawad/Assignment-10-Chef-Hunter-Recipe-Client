@@ -1,13 +1,18 @@
 import React, { useContext, useState } from "react";
 import companyLogo from "../../../assets/companyLogo.png";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaGoogle, FaGithub } from "react-icons/fa";
 import { AuthContext } from "../../../providers/AuthProvider";
 
-const Login = () => {
-  const [error, setError] = useState("");
 
+const Login = () => {
   const { signIn } = useContext(AuthContext);
+  const [error, setError] = useState("");
+  const Navigate = useNavigate();
+  const location = useLocation();
+  console.log('login page location', location);
+  const from = location.state?.from?.pathname || '/';
+
 
   const handleLogin = (event) => {
     event.preventDefault();
@@ -21,6 +26,7 @@ const Login = () => {
         const loggedUser = result.user;
         console.log(loggedUser);
         setError("");
+        Navigate(from, {replace: true})
       })
       .catch((error) => {
         console.log(error.message);
@@ -65,7 +71,7 @@ const Login = () => {
                   id="email"
                   className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   placeholder="name@company.com"
-                  required=""
+                  required
                 />
               </div>
               <div>
@@ -81,7 +87,7 @@ const Login = () => {
                   id="password"
                   placeholder="••••••••"
                   className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                  required=""
+                  required
                 />
               </div>
 
@@ -95,7 +101,7 @@ const Login = () => {
                       aria-describedby="remember"
                       type="checkbox"
                       className="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-primary-600 dark:ring-offset-gray-800"
-                      required=""
+                      required
                     />
                   </div>
                   <div className="ml-3 text-sm">
@@ -117,8 +123,8 @@ const Login = () => {
               <button
                 type="submit"
                 className="w-full text-white bg-purple-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
-              >
-                Login
+               >
+                Login 
               </button>
 
               <p className="text-sm font-light text-black dark:text-gray-400">

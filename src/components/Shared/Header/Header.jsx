@@ -9,9 +9,8 @@ const Header = () => {
 
   const handleLogout = () => {
     logOut() 
-  
-
   }
+
   return (
       <div className="navbar container bg-base-100">
         <div className="navbar-start">
