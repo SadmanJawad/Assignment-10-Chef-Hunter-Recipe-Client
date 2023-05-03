@@ -1,7 +1,6 @@
 import React from 'react';
 import Header from '../components/Shared/Header/Header';
 import Footer from '../components/Shared/Footer/Footer';
-import Home from '../components/Home/Home/Home';
 import { Outlet } from 'react-router-dom';
 
 const MainLayout = () => {
@@ -9,8 +8,8 @@ const MainLayout = () => {
         <div>
             <Header></Header>
             
-            <Outlet></Outlet>
-
+           <Outlet></Outlet>
+       
             <Footer></Footer>
         </div>
     );

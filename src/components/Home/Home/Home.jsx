@@ -1,8 +1,11 @@
 import React from "react";
 import banner from "../../../assets/home-banner.jpg";
+import { Link } from "react-router-dom";
+import ChefCard from "../ChefCard/ChefCard";
 
 const Home = () => {
   return (
+    <div>
       <div
         className="min-h-screen relative bg-cover bg-center flex justify-center items-center"
         style={{ backgroundImage: `url(${banner})` }}
@@ -19,10 +22,14 @@ const Home = () => {
             Get inspired by various recipes from my expert experiences. From
             quick healthy meals to family suppers.
           </p>
-      <button className="btn bg-purple-700 mt-3 rounded-xl">Read Blogs</button>
-      
+          <Link to="/blog" className="btn bg-purple-700 mt-3 rounded-xl">
+            Read Blogs
+          </Link>
         </div>
       </div>
+        <ChefCard></ChefCard>
+  
+    </div>
   );
 };
 

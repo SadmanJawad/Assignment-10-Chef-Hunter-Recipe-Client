@@ -1,37 +1,33 @@
 import React, { useContext, useState } from "react";
 import companyLogo from "../../../assets/companyLogo.png";
-import { Link, Navigate} from "react-router-dom";
-import { FaGoogle,FaGithub } from "react-icons/fa";
+import { Link } from "react-router-dom";
+import { FaGoogle, FaGithub } from "react-icons/fa";
 import { AuthContext } from "../../../providers/AuthProvider";
 
 const Login = () => {
-    const [error, setError] = useState('');
+  const [error, setError] = useState("");
 
-    const {signIn} = useContext(AuthContext)
+  const { signIn } = useContext(AuthContext);
 
-    const handleLogin = event => {
-        event.preventDefault();
+  const handleLogin = (event) => {
+    event.preventDefault();
     const form = event.target;
     const email = form.email.value;
     const password = form.password.value;
-    console.log(email, password)
+    console.log(email, password);
 
     signIn(email, password)
-    .then(result => {
+      .then((result) => {
         const loggedUser = result.user;
-        console.log(loggedUser)
-        setError('');
-        
-
-    })
-    .catch(error => {
-        console.log(error.message)
-        setError(error.message)
+        console.log(loggedUser);
+        setError("");
+      })
+      .catch((error) => {
+        console.log(error.message);
+        setError(error.message);
         event.target.reset();
-
-    })
-
-    }
+      });
+  };
 
   return (
     <section className="bg-gray-50 dark:bg-gray-900">
@@ -51,7 +47,11 @@ const Login = () => {
             <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
               Login
             </h1>
-            <form onSubmit={handleLogin} className="space-y-4 md:space-y-6" action="#">
+            <form
+              onSubmit={handleLogin}
+              className="space-y-4 md:space-y-6"
+              action="#"
+            >
               <div>
                 <label
                   htmlFor="email"
@@ -115,7 +115,6 @@ const Login = () => {
                 </a>
               </div>
               <button
-
                 type="submit"
                 className="w-full text-white bg-purple-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
               >
@@ -135,24 +134,23 @@ const Login = () => {
           </div>
         </div>
         <p className="text-center mb-5 text-xl font-semibold">Or</p>
-      <div className="text-center mb-5">
-        <button
-          type="button"
-          className="text-white bg-[#4285F4] hover:bg-[#4285F4]/90 focus:ring-4 focus:outline-none focus:ring-[#4285F4]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#4285F4]/55 mr-2 mb-2"
-        >
-          <FaGoogle className="w-4 h-4 mr-2 -ml-1"></FaGoogle>
-          Sign in with Google
-        </button>
-        <button
-          type="button"
-          className="text-white bg-[#24292F] hover:bg-[#24292F]/90 focus:ring-4 focus:outline-none focus:ring-[#24292F]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-gray-500 dark:hover:bg-[#050708]/30 mr-2 mb-2"
-        >
-         <FaGithub className="w-4 h-4 mr-2 -ml-1"></FaGithub>
-          Sign in with Github
-        </button>
+        <div className="text-center mb-5">
+          <button
+            type="button"
+            className="text-white bg-[#4285F4] hover:bg-[#4285F4]/90 focus:ring-4 focus:outline-none focus:ring-[#4285F4]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#4285F4]/55 mr-2 mb-2"
+          >
+            <FaGoogle className="w-4 h-4 mr-2 -ml-1"></FaGoogle>
+            Sign in with Google
+          </button>
+          <button
+            type="button"
+            className="text-white bg-[#24292F] hover:bg-[#24292F]/90 focus:ring-4 focus:outline-none focus:ring-[#24292F]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-gray-500 dark:hover:bg-[#050708]/30 mr-2 mb-2"
+          >
+            <FaGithub className="w-4 h-4 mr-2 -ml-1"></FaGithub>
+            Sign in with Github
+          </button>
+        </div>
       </div>
-      </div>
-     
     </section>
   );
 };
