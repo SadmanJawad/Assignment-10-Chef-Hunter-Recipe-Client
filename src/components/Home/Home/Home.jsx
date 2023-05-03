@@ -2,6 +2,7 @@ import React from "react";
 import banner from "../../../assets/home-banner.jpg";
 import { Link } from "react-router-dom";
 import ChefCard from "../ChefCard/ChefCard";
+import First from "../../Extra Sections/First/First";
 
 const Home = () => {
   return (
@@ -28,6 +29,8 @@ const Home = () => {
         </div>
       </div>
         <ChefCard></ChefCard>
+
+        <First></First>
   
     </div>
   );

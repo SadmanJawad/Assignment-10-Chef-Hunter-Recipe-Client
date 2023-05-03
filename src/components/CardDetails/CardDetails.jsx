@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const CardDetails = ({ chefData }) => {
   const { chefName, experienceYears, id, pictureUrl, likes, recipeCount } =
     chefData;
-//   console.log(chefData);
+  console.log(chefData);
   return (
       <div className="card w-96 ml-7 bg-base-100 border border-gray-400">
         <figure>
