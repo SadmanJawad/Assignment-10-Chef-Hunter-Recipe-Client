@@ -30,7 +30,6 @@ const Home = () => {
         </div>
       </div>
         <ChefCard></ChefCard>
-
         <First></First>
         <Second></Second>
   

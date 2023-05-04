@@ -50,23 +50,6 @@ const Header = () => {
             <li>
               <Link to="/blog">Blog</Link>
             </li>
-            {/* <li tabIndex={0}>
-                <a className="justify-between">
-                  More menu
-                 <FaArrowRight></FaArrowRight>
-                </a>
-                <ul className="p-2 bg-base-100">
-                  <li>
-                  <Link to='/'>Review</Link>
-                  </li>
-                  <li>
-              <Link to='/'>Recipe</Link>
-            </li> 
-            
-           
-            
-                </ul>
-              </li> */}
             {user ? (
               <li>
                 <Link
