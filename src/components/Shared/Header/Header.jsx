@@ -5,7 +5,7 @@ import {
   FaFacebook,
   FaSearch,
 } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import companyLogo from "../../../assets/companyLogo.png";
 import { AuthContext } from "../../../providers/AuthProvider";
 
@@ -75,14 +75,27 @@ const Header = () => {
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
           <li>
-            <Link to="/">Home</Link>
+            <NavLink to="/"
+              className={({ isActive, isPending }) =>
+              isPending ? "pending" : isActive ? "active" : ""
+            }
+            >
+              Home</NavLink>
           </li>
           <li>
-            <Link to="/about">About</Link>
+            <NavLink to="/about"
+                className={({ isActive, isPending }) =>
+                isPending ? "pending" : isActive ? "active" : ""
+              } 
+            >About</NavLink>
           </li>
 
           <li>
-            <Link to="/blog">Blog</Link>
+            <NavLink to="/blog"
+               className={({ isActive, isPending }) =>
+               isPending ? "pending" : isActive ? "active" : ""
+             } 
+            >Blog</NavLink>
           </li>
           <div className="ml-56">
             {user ? (

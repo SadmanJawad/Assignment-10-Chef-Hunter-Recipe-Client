@@ -1,4 +1,5 @@
 import React from 'react';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 const About = () => {
     return (
@@ -8,7 +9,7 @@ const About = () => {
     <div className="flex flex-col md:flex-row">
      <div className="md:w-1/2 mb-6 md:mb-0">
       <figure className="relative max-w transition-all duration-300 cursor-pointer filter grayscale hover:grayscale-0">
-      <img src="https://i.ibb.co/ZhyNXS6/close-up-chef-cooking-restaurant-kitchen.jpg" alt="Our Story" className="w-full h-full object-cover rounded-lg shadow-md"/>
+      <LazyLoadImage src="https://i.ibb.co/ZhyNXS6/close-up-chef-cooking-restaurant-kitchen.jpg" alt="Our Story" className="w-full h-full object-cover rounded-lg shadow-md"/>
       </figure>
       </div>
       <div className="md:w-1/2 md:pl-10">
