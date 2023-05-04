@@ -4,10 +4,14 @@ import { Rating } from "@smastrom/react-rating";
 import "@smastrom/react-rating/style.css";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useState } from "react";
 
 const ViewRecipeDetails = () => {
+    const [disable, setDisable] = useState(false);
+    const [disable2, setDisable2] = useState(false);
+    const [disable3, setDisable3] = useState(false);
   const recipeDetails = useLoaderData();
-  const notify = () => toast.success("Added to favorites");
+  
   const {
     pictureUrl,
     chefName,
@@ -19,6 +23,21 @@ const ViewRecipeDetails = () => {
     recipes,
   } = recipeDetails;
   console.log(recipeDetails);
+
+
+  const handleAddToFav =() =>{
+    toast.success('Added to favourite');
+    setDisable(true);
+}
+const handleAddToFav2 =() =>{
+    toast.success('Added to favourite');
+    setDisable2(true);
+}
+const handleAddToFav3 =() =>{
+    toast.success('Added to favourite');
+    setDisable3(true);
+}
+
 
   return (
     <div>
@@ -86,7 +105,7 @@ const ViewRecipeDetails = () => {
               <span className="text-black ">{recipes[0].rating}</span>
             </div>
             <div className="card-actions">
-              <button onClick={notify} className="btn bg-purple-700">
+              <button disabled={disable} onClick={handleAddToFav} className="btn bg-purple-700">
                 Add to favorite<FaHeart className="ml-2 w-9 h-5"></FaHeart>
               </button>
               <ToastContainer />
@@ -118,7 +137,7 @@ const ViewRecipeDetails = () => {
               <span className="text-black ">{recipes[1].rating}</span>
             </div>
             <div className="card-actions">
-              <button onClick={notify} className="btn bg-purple-700">
+              <button  disabled={disable2} onClick={handleAddToFav2} className="btn bg-purple-700">
                 Add to favorite<FaHeart className="ml-2 w-9 h-5"></FaHeart>
               </button>
               <ToastContainer />
@@ -150,7 +169,7 @@ const ViewRecipeDetails = () => {
               <span className="text-black ">{recipes[2].rating}</span>
             </div>
             <div className="card-actions">
-              <button onClick={notify} className="btn bg-purple-700">
+              <button  disabled={disable3} onClick={handleAddToFav3} className="btn bg-purple-700">
                 Add to favorite<FaHeart className="ml-2 w-9 h-5"></FaHeart>
               </button>
               <ToastContainer />

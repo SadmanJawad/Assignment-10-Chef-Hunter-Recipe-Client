@@ -1,10 +1,4 @@
 import React, { useContext } from "react";
-import {
-  FaArrowCircleRight,
-  FaArrowRight,
-  FaFacebook,
-  FaSearch,
-} from "react-icons/fa";
 import { Link, NavLink } from "react-router-dom";
 import companyLogo from "../../../assets/companyLogo.png";
 import { AuthContext } from "../../../providers/AuthProvider";
