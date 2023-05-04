@@ -9,6 +9,8 @@ const ViewRecipeDetails = () => {
 
     return (
         <div>
+
+            Hard Quoted Text. Not dynamic
                 <h1>{chefName}</h1>
                 <div>
                     <figure><img src={pictureUrl} alt="" /></figure>
