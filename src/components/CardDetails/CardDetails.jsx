@@ -7,7 +7,7 @@ const CardDetails = ({ chefData }) => {
     chefData;
   // console.log(chefData);
   return (
-      <div className="card w-96 ml-7 bg-base-100 border border-gray-400 relative group overflow-hidden rounded-lg shadow-lg">
+      <div className="card w-96 ml-7 bg-purple-400 bg-opacity-20 border border-purple-400 border-opacity-20 relative group overflow-hidden rounded-lg shadow-lg">
         <figure>
           <img className="h-60 w-4/5 rounded mt-4 transition duration-300 transform group-hover:scale-125" src={pictureUrl} alt="" />
         </figure>

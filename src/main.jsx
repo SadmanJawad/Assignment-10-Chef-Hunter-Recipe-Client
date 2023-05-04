@@ -11,6 +11,7 @@ import AuthProvider from './providers/AuthProvider'
 import Blog from './components/Blog/Blog'
 import PrivateRoutes from './PrivateRoutes'
 import ViewRecipeDetails from './components/ViewRecipeDetails/ViewRecipeDetails'
+import Error from './components/Error/Error'
 
 
 const router = createBrowserRouter([
@@ -40,11 +41,16 @@ const router = createBrowserRouter([
       }
     ]
   },
-  
+
   {
     path: 'chefData/:id',
     element : <PrivateRoutes><ViewRecipeDetails></ViewRecipeDetails></PrivateRoutes>,
     loader: ({params}) => fetch(`http://localhost:5000/chefData/${params.id}`)
+  },
+  {
+    path: '*',
+    element: <Error></Error>
+    
   }
 ])
 
