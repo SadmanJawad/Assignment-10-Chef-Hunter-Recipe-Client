@@ -11,7 +11,7 @@ import { AuthContext } from "../../../providers/AuthProvider";
 
 const Header = () => {
   const { user, logOut } = useContext(AuthContext);
-
+  console.log(user)
   const handleLogout = () => {
     logOut();
   };
@@ -97,7 +97,11 @@ const Header = () => {
              } 
             >Blog</NavLink>
           </li>
-          <div className="ml-56">
+          <div className="ml-56 flex gap-2">
+            {/* if you have user name it can be shown */}
+          {user && <li className="tooltip tooltip-bottom" data-tip={user.displayName ? user.displayName : 'User name unavailable'}>
+                        <button className="bg-purple-600">{user?.displayName}</button>
+                    </li>}
             {user ? (
               <li>
                 <Link
