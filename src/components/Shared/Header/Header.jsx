@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import companyLogo from "../../../assets/companyLogo.png";
 import { AuthContext } from "../../../providers/AuthProvider";
+import {FaUserTimes } from "react-icons/fa";
 
 const Header = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -91,10 +92,18 @@ const Header = () => {
              } 
             >Blog</NavLink>
           </li>
-          <div className="ml-56 flex gap-2">
-            {/* if you have user name it can be shown */}
-          {user && <li className="tooltip tooltip-bottom" data-tip={user.displayName ? user.displayName : 'User name unavailable'}>
-                        <button className="bg-purple-600">{user?.displayName}</button>
+          <div className="ml-56 flex gap-2 items-center">
+            {/* if you have user name, photo can be shown */}
+          {user && 
+          <li className="tooltip tooltip-bottom" 
+          data-tip={user.displayName ? 
+          user.displayName : 'User name unavailable'}>
+                    <Link to='/user'>
+                      {user.photoURL ? <button><img className="rounded-full h-10" src={user?.photoURL} alt="" /></button>  : 
+                      <FaUserTimes className="text-lg w-6 h-6"></FaUserTimes>
+                      }
+                      
+                      </Link>
                     </li>}
             {user ? (
               <li>

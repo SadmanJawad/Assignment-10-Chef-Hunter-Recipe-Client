@@ -9,7 +9,7 @@ import { getAuth, updateProfile } from "firebase/auth";
 const Register = () => {
     const [error, setError] = useState('');
   const [success, setSuccess] = useState('')
-    const {createUser} = useContext(AuthContext);
+    const {user, createUser, userProfileUpdate} = useContext(AuthContext);
   const Navigate = useNavigate();
   const location = useLocation();
   console.log('reg page location', location)
@@ -23,15 +23,14 @@ const Register = () => {
         const name = form.name.value
         const email = form.email.value;
         const password = form.password.value;
-        // const photo = form.photo.value;
-      
+        const photo = form.photo.value;
         //!  validate password
         if(!/(?=.*[A-Z])/.test(password)){
           setError('Please add at least one uppercase')
           return;
         }
 
-        console.log(name, email, password)
+        console.log(name, email, password, photo)
         
         createUser(email, password)
         .then(result => {
@@ -40,6 +39,14 @@ const Register = () => {
             setError('');
             setSuccess('User has been created successfully');
             Navigate(from, {replace: true})
+            // update user profile photo , name
+            userProfileUpdate = (name , photo)
+            .then(() => {
+              console.log('User profile update successfully')
+            }) 
+            .catch(error => {
+              console.log('Failed to update user profile', user)
+            })
         })
         .catch(error => {
             console.log(error.message)
@@ -47,15 +54,6 @@ const Register = () => {
             // event.target.reset();
         })
 
-        // updateProfile(auth, createUser, {
-        //     displayName : name, photoURL: "https://example.com/jane-q-user/profile.jpg"
-        // })
-        // .then(()=> {
-        //     console.log(photoURL)
-        // })
-        // .catch(error => {
-        //     console.log(error)
-        // } )
     }
 
  
