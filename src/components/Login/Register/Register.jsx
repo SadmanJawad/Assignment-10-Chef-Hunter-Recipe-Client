@@ -24,13 +24,14 @@ const Register = () => {
         const email = form.email.value;
         const password = form.password.value;
         const photo = form.photo.value;
+        console.log('photo ', photo)
         //!  validate password
         if(!/(?=.*[A-Z])/.test(password)){
           setError('Please add at least one uppercase')
           return;
         }
 
-        console.log(name, email, password, photo)
+        // console.log(name, email, password, photo)
         
         createUser(email, password)
         .then(result => {
@@ -45,7 +46,7 @@ const Register = () => {
               console.log('User profile update successfully')
             }) 
             .catch(error => {
-              console.log('Failed to update user profile', user)
+              console.log('Failed to update user profile', error)
             })
         })
         .catch(error => {
@@ -150,7 +151,7 @@ const Register = () => {
                 </label>
                 <input
                   type="url"
-                  name="photo-url"
+                  name="photo"
                   id="photo-url"
                   placeholder=""
                   className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"

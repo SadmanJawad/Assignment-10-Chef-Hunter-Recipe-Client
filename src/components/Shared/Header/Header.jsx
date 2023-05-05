@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import companyLogo from "../../../assets/companyLogo.png";
 import { AuthContext } from "../../../providers/AuthProvider";
-import {FaUserTimes } from "react-icons/fa";
+import {FaUser, FaUserTimes } from "react-icons/fa";
 
 const Header = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -96,13 +96,18 @@ const Header = () => {
             {/* if you have user name, photo can be shown */}
           {user && 
           <li className="tooltip tooltip-bottom" 
-          data-tip={user.displayName ? 
-          user.displayName : 'User name unavailable'}>
-                    <Link to='/user'>
-                <button><img className="rounded-full h-10" src={user?.photoURL} alt="" /></button>  
-                  
-                      
-                      </Link>
+          data-tip={user.displayName ?  user.displayName : 'User name unavailable'}
+          >
+              <Link
+              to='/user-profile'
+              className={({ isActive }) => (isActive ? 'active' : 'default')}
+              >
+              {
+                user.photoURL ?   <img className="rounded-full w-10 h-10" src={user?.photoURL} alt="" /> :
+                <FaUser></FaUser>
+              }
+              </Link>
+
                     </li>}
             {user ? (
               <li>
