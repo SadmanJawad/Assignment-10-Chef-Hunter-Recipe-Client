@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import ChefCard from "../ChefCard/ChefCard";
 import First from "../../Extra Sections/First/First";
 import Second from "../../Extra Sections/Second/Second";
+import Third from "../../Extra Sections/Third/Third";
 
 const Home = () => {
   return (
@@ -31,6 +32,7 @@ const Home = () => {
       </div>
         <ChefCard></ChefCard>
         <First></First>
+        <Third></Third>
         <Second></Second>
   
     </div>
