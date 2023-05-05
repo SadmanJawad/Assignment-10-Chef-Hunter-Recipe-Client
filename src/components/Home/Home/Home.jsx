@@ -9,7 +9,7 @@ const Home = () => {
   return (
     <div>
       <div
-        className="min-h-screen relative bg-cover bg-center flex justify-center items-center"
+        className="lg:min-h-screen relative bg-cover bg-center flex justify-center items-center"
         style={{ backgroundImage: `url(${banner})` }}
       >
         <div className="bg-neutral opacity-70 min-h-full w-full absolute object-contain ">

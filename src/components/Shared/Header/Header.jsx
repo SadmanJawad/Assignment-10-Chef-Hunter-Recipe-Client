@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import companyLogo from "../../../assets/companyLogo.png";
 import { AuthContext } from "../../../providers/AuthProvider";
-import {FaUser, FaUserTimes } from "react-icons/fa";
+import {FaUser} from "react-icons/fa";
 
 const Header = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -45,7 +45,22 @@ const Header = () => {
             <li>
               <Link to="/blog">Blog</Link>
             </li>
-            {user ? (
+              {user && 
+          <li className="tooltip tooltip-bottom" 
+          data-tip={user.displayName ?  user.displayName : 'User name unavailable'}
+          >
+              <Link
+              to='/user-profile'
+              className={({ isActive }) => (isActive ? 'active' : 'default')}
+              >
+              {
+                user.photoURL ?   <img className="rounded-full w-10 h-10" src={user?.photoURL} alt="" /> :
+                <FaUser></FaUser>
+              }
+              </Link>
+
+                    </li>}
+                    {user ? (
               <li>
                 <Link
                   onClick={handleLogout}
@@ -60,8 +75,10 @@ const Header = () => {
                   Login
                 </Link>
               </li>
+              
             )}
           </ul>
+          
         </div>
         <Link className="w-32 ml-24">
           <img src={companyLogo} alt="" />

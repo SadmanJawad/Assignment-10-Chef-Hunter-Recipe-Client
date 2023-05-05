@@ -10,7 +10,8 @@ const ViewRecipeDetails = () => {
     const [disable, setDisable] = useState(false);
     const [disable2, setDisable2] = useState(false);
     const [disable3, setDisable3] = useState(false);
-  const recipeDetails = useLoaderData();
+
+const recipeDetails = useLoaderData();
   
   const {
     pictureUrl,
@@ -22,7 +23,7 @@ const ViewRecipeDetails = () => {
     id,
     recipes,
   } = recipeDetails;
-  console.log(recipeDetails);
+  console.log('chef recipe', recipeDetails);
 
 
   const handleAddToFav =() =>{

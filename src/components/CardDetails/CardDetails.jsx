@@ -4,8 +4,7 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 import { Link } from "react-router-dom";
 
 const   CardDetails = ({ chefData }) => {
-  const { chefName, experienceYears, id, pictureUrl, likes, recipeCount } =
-    chefData;
+  const { chefName, experienceYears, id, pictureUrl, likes, recipeCount } = chefData;
     // console.log(chefData)
   return (
       <div className="card w-96 ml-7 bg-purple-400 bg-opacity-20 border border-purple-400 border-opacity-20 relative group overflow-hidden rounded-lg shadow-lg">

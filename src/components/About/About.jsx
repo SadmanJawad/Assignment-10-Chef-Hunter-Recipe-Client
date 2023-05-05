@@ -14,9 +14,9 @@ const About = () => {
       </div>
       <div className="md:w-1/2 md:pl-10">
         <h3 className="text-xl font-bold text-gray-800 mb-2">Our Story</h3>
-        <p className="text-gray-600 mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, justo sed viverra venenatis, elit sapien hendrerit massa, ac rutrum tortor quam eu ex. Morbi at dapibus felis.</p>
-        <p className="text-gray-600 mb-4">Aliquam eu tellus aliquam, bibendum tellus eget, tincidunt quam. Maecenas vel justo ut felis consectetur venenatis nec ut odio. Duis maximus dolor eget semper varius.</p>
-        <p className="text-gray-600 mb-4">Sed vitae elit ut erat euismod tempor vel ut nisi. In mattis neque ut lacinia euismod. Donec non risus massa. Morbi lacinia, dolor a dapibus accumsan, eros risus ultrices nibh, sit amet ultrices turpis purus non leo.</p>
+        <p className="text-gray-600 mb-4">Sprouted Kitchen is a Professional Chef Hunting Platform. Here we will provide you only interesting content, which you will like very much. We're dedicated to providing you the best of Chef Hunting, with a focus on dependability and online most valuable chef list. We're working to turn our passion for Chef Hunting into a booming online website. We hope you enjoy our Chef Hunting as much as we enjoy offering them to you.
+
+I will keep posting more important posts on my Website for all of you. Please give your support and love.</p>
         <a href="#" className="inline-block py-2 px-4 rounded-lg bg-indigo-500 text-white font-semibold hover:bg-indigo-600 transition-colors duration-300">Learn More</a>
       </div>
     </div>
