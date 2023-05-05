@@ -99,9 +99,8 @@ const Header = () => {
           data-tip={user.displayName ? 
           user.displayName : 'User name unavailable'}>
                     <Link to='/user'>
-                      {user.photoURL ? <button><img className="rounded-full h-10" src={user?.photoURL} alt="" /></button>  : 
-                      <FaUserTimes className="text-lg w-6 h-6"></FaUserTimes>
-                      }
+                <button><img className="rounded-full h-10" src={user?.photoURL} alt="" /></button>  
+                  
                       
                       </Link>
                     </li>}
